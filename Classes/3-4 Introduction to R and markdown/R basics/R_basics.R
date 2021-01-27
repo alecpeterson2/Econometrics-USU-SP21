@@ -296,20 +296,38 @@ new_df %>% filter(GPA>3 & height>=170) %>% arrange(desc(height)) %>% select(name
 # working with wooldridge data 
 # example : wage2
 
+<<<<<<< HEAD
 library(wooldridge)
 
+=======
+>>>>>>> 7c5f4750d72713028e2de3955a49bcf16c6a8cca
 df<- wage2
 head(df)
 str(df)
 summary(df)
 
 
+<<<<<<< HEAD
 # getting rid of NA's
 df<- df[complete.cases(df),]
 summary(df)
 
 
 df <- select(df, c("wage", "hours", "IQ", "educ", "age", "married", "black"))
+=======
+# Handling missing data
+library(visdat)
+vis_dat(df)
+vis_miss(df)
+
+
+# cleaning the data set
+df_clean <-na.omit(df)
+
+
+# Data tables
+df <- select(df_clean, c("wage", "hours", "IQ", "educ", "age", "married", "black"))
+>>>>>>> 7c5f4750d72713028e2de3955a49bcf16c6a8cca
 head(df)
 
 table(df$married)
@@ -318,6 +336,7 @@ my_table<- table(df$married, df$black)
 my_table
 
 
+<<<<<<< HEAD
 prop.table(my_table,margin= 1)
 my_prob_table <- prop.table(my_table,2)
 
@@ -328,6 +347,17 @@ colnames(my_prob_table) <- c("non black", "black")
 rownames(my_prob_table)<- c("single", "married")
 my_prob_table
 round(my_prob_table,2)
+=======
+# changing the names in rows and columns:
+
+colnames(my_table) <- c("non_black", "black")
+rownames(my_table)<- c("non_married", "married")
+my_table
+
+# proportion tables
+prop.table(my_table,margin= 1)
+prop.table(my_table,2)
+>>>>>>> 7c5f4750d72713028e2de3955a49bcf16c6a8cca
 
 
 
@@ -360,7 +390,10 @@ my_list <- list()
 my_list[[1]] <- "Hello"
 my_list[[2]] <- c(1,2,3)
 my_list[[3]] <- data.frame(name=c("A", "B"), value=c(4,3.8))
+<<<<<<< HEAD
 # my_list[[4]] <- hist(df$wage)
+=======
+>>>>>>> 7c5f4750d72713028e2de3955a49bcf16c6a8cca
 
 
 my_list[[3]]
