@@ -269,7 +269,7 @@ arrange(new_df, desc(height))
 new_df$height
 new_df["height"]
 select(new_df, height)
-select(new_df, c(is_pass,names))
+select(new_df, c(names,is_pass))
 
 # So what is the power of select?
 names(wage2)
@@ -367,6 +367,7 @@ my_list[[3]]
 
 
 my_list[[3]][1,2]
+
 
 
 
